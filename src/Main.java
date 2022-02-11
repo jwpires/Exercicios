@@ -47,7 +47,8 @@ public class Main {
                 break;
             case 19 : ExerciciosMatriz.exercicio19();
                 break;
-
+            case 20 : ExerciciosMatriz.exercicio20();
+                break;
 
 
 
