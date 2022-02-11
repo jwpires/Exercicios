@@ -499,35 +499,46 @@ public class ExerciciosMatriz {
 
     }
 
-
-    /*
-     20. Fac¸a programa que leia uma matriz 3 x 6 com valores reais.
-(a) Imprima a soma de todos os elementos das colunas ´ımpares.
-(b) Imprima a media aritm ´ etica dos elementos da segunda e quarta colunas. ´
-(c) Substitua os valores da sexta coluna pela soma dos valores das colunas 1 e 2.
-(d) Imprima a matriz modificada.
-*/
+    
     public static void exercicio20() {
         Scanner scan = new Scanner(System.in);
         Random gerador = new Random();
         double[][] matriz = new double[3][6];
-        double somaImpar = 0;
+        double somaImpar = 0, media = 0;
+
 
         for (int i = 0;i<matriz.length; i++ ){
-            for (int j = 0; j < matriz[i].length; j++){
+            for (int j = 0, soma = 0; j < matriz[i].length; j++){
                 matriz[i][j]= gerador.nextInt(100);
                 System.out.print(" | "+matriz[i][j]+" | ");
                 if ( j%2 != 0){
                     somaImpar += matriz[i][j];
                 }
+                if( j == 1 || j == 3){
+                    media += matriz[i][j];
+                }
+                if(j < 2){
+                    soma += matriz[i][j];
+                }
+                if(j == (matriz[i].length-1)){
+                    matriz[i][j] = soma;
+                }
             }
             System.out.println();
         }
         System.out.println("Soma elementos colunas impares: "+somaImpar);
+        System.out.println((matriz.length*2));
+        System.out.println("Media elementos 2º e 4º colunas: "+(media/(matriz.length*2)));
+        System.out.println();
+        System.out.println("Nova Matriz");
+        System.out.println();
+        for (int i = 0;i<matriz.length; i++ ){
+            for (int j = 0, soma = 0; j < matriz[i].length; j++) {
+                System.out.print(" | " + matriz[i][j] + " | ");
+            }
+            System.out.println();
+        }
 
     }
-
-
-
 
 }
