@@ -499,7 +499,7 @@ public class ExerciciosMatriz {
 
     }
 
-    
+
     public static void exercicio20() {
         Scanner scan = new Scanner(System.in);
         Random gerador = new Random();
@@ -539,6 +539,116 @@ public class ExerciciosMatriz {
             System.out.println();
         }
 
+    }
+
+    /*
+    * 21. Fac¸a um programa que leia duas matrizes 2 x 2 com valores reais. Oferec¸a ao usuario ´
+um menu de opc¸oes: ˜
+(a) somar as duas matrizes
+(b) subtrair a primeira matriz da segunda
+(c) adicionar uma constante as duas matrizes `
+(d) imprimir as matrizes
+*/
+
+    public static void exercicio21() {
+        Scanner scan = new Scanner(System.in);
+        Random gerador = new Random();
+        int[][] matriz1 = new int[2][2];
+        int[][] matriz2 = new int[2][2];
+        String opcao = new String();
+        int constante = 0;
+
+        System.out.println("(a) somar as duas matrizes");
+        System.out.println("(b) subtrair a primeira matriz da segunda");
+        System.out.println("(c) adicionar uma constante as duas matrizes");
+        System.out.println("(d) imprimir as matrizes");
+
+        opcao = scan.nextLine();
+
+        for(int index = 0; index < 2; index++){
+            System.out.println("Informe os dados da "+(index+1)+" matriz:");
+            for (int i = 0; i < matriz1.length; i++){
+                for (int j = 0; j<matriz1[i].length; j++){
+                    if(index < 1){
+                        System.out.println("M["+(i)+"]["+(j)+"]: ");
+                        matriz1[i][j] = scan.nextInt();
+                    }else {
+                        System.out.println("M["+(i)+"]["+(j)+"]: ");
+                        matriz2[i][j] = scan.nextInt();
+                    }
+                }
+            }
+        }
+        switch (opcao){
+            case "a": somaMatriz(matriz1, matriz2);
+                break;
+            case "b": subtrairMatriz(matriz1, matriz2);
+                break;
+            case "c": adicionarConstante(matriz1, matriz2, constante);
+                break;
+            case "d": exibe(matriz1, matriz2);
+                break;
+        }
+    }
+
+    public static void somaMatriz(int[][]  matriz1, int[][] matriz2){
+        System.out.println("Matrizes somadas:");
+        for (int i = 0; i<matriz1.length; i++){
+            for (int j=0; j<matriz1[i].length; j++){
+                System.out.print("| "+(matriz1[i][j]+matriz2[i][j])+" |");
+            }
+            System.out.println("");
+        }
+    }
+
+    public static void subtrairMatriz(int[][]  matriz1, int[][] matriz2){
+        System.out.println("Matrizes subtraidas:");
+        for (int i = 0; i<matriz1.length; i++){
+            for (int j=0; j<matriz1[i].length; j++){
+                System.out.print("| "+(matriz1[i][j]-matriz2[i][j])+" |");
+            }
+            System.out.println("");
+        }
+    }
+
+    public static void adicionarConstante(int[][]  matriz1, int[][] matriz2, int constante){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("informe a constante:");
+        constante = scan.nextInt();
+
+        for(int index = 0; index < 2; index++){
+            System.out.println("Matriz "+(index+1));
+            for (int i = 0; i<matriz1.length; i++){
+                for (int j=0; j<matriz1[i].length; j++){
+                    if (index < 1 ){
+                        System.out.print("| "+(matriz1[i][j]*constante)+" |");
+                    }else {
+                        System.out.print("| "+(matriz2[i][j]*constante)+" |");
+                    }
+
+                }
+                System.out.println("");
+            }
+            System.out.println("");
+        }
+    }
+
+    public static void exibe(int[][]  matriz1, int[][] matriz2){
+        for (int index = 0; index < 2; index++) {
+            System.out.println("Matriz "+(index+1));
+            for (int i = 0; i < matriz1.length; i++) {
+                for (int j = 0; j < matriz1[i].length; j++) {
+                    if (index < 1) {
+                        System.out.print("| " + (matriz1[i][j]) + " |");
+                    } else {
+                        System.out.print("| " + (matriz2[i][j]) + " |");
+                    }
+
+                }
+                System.out.println("");
+            }
+            System.out.println("");
+        }
     }
 
 }
