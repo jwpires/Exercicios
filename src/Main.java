@@ -39,6 +39,14 @@ public class Main {
                 break;
             case 15 : ExerciciosMatriz.exercicio15();
                 break;
+            case 16 : ExerciciosMatriz.exercicio16();
+                break;
+            case 17 : ExerciciosMatriz.exercicio17();
+                break;
+            case 18 : ExerciciosMatriz.exercicio18();
+                break;
+            case 19 : ExerciciosMatriz.exercicio19();
+                break;
 
 
 

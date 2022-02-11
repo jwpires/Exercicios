@@ -274,11 +274,11 @@ public class ExerciciosMatriz {
         Random gerador = new Random();
         System.out.println("****** B I N G O! ******");
         for (int i = 0; i < matriz1.length; i++){
-            for (int j = 0, numero = gerador.nextInt(99); j < matriz1[i].length; j++){
+            for (int j = 0, numero = gerador.nextInt(100); j < matriz1[i].length; j++){
 
                 //chama função criada abaixo do exercicio
                 while (validaMatriz(matriz1, numero) == true){
-                    numero = gerador.nextInt(99);
+                    numero = gerador.nextInt(100);
                 }
                 matriz1[i][j] = numero;
                 if(numero < 10){
@@ -311,22 +311,194 @@ public class ExerciciosMatriz {
         Scanner scan = new Scanner(System.in);
         char[][] respAlunos = new char[5][10];
         char[] gabarito = {'a','c','c','b','e','e','d','b','a','d'};
-        int[] resultado = new int[10];
-       String opc = new String();
+        int[] resultado = new int[5];
+        String opc = new String();
+        int pontos = 0;
 
 
         for (int i = 0; i < respAlunos.length; i++){
             System.out.println((i+1)+" Aluno:");
+            pontos = 0;
             for (int j = 0; j<respAlunos[i].length; j++){
                 System.out.println("Informe a resposta da questão de numero "+(1+j)+":");
                 opc = scan.next();
 
                 if(opc.charAt(0) == 'a' || opc.charAt(0) == 'b' || opc.charAt(0) == 'c' || opc.charAt(0) == 'd' || opc.charAt(0) == 'e'){
-                    if()
+                    respAlunos[i][j] = opc.charAt(0);
+                    if(respAlunos[i][j] == gabarito[j]){
+                        pontos++;
+                    }
+                }
+            }
+            resultado[i] = pontos;
+        }
+        for (int i = 0; i < resultado.length; i++){
+            System.out.println("Pontos do "+(i+1)+"° aluno(a): "+resultado[i]);
+        }
+    }
+
+    public static void exercicio16(){
+        Scanner scan = new Scanner(System.in);
+        char[][] respAlunos = new char[3][10];
+        int[] matricula = new int[3];
+        char[] gabarito = {'a','c','c','b','e','e','d','b','a','d'};
+        int[] resultado = new int[5];
+        String opc = new String();
+        int pontos = 0;
+
+
+        for (int i = 0; i < respAlunos.length; i++){
+            System.out.println((i+1)+" Aluno:");
+            System.out.println("Informe o numero da matricula do aluno:");
+            matricula[i] = scan.nextInt();
+            pontos = 0;
+            for (int j = 0; j<respAlunos[i].length; j++){
+                System.out.println("Informe a resposta da questão de numero "+(1+j)+":");
+                opc = scan.next();
+
+                if(opc.charAt(0) == 'a' || opc.charAt(0) == 'b' || opc.charAt(0) == 'c' || opc.charAt(0) == 'd' || opc.charAt(0) == 'e'){
+                    respAlunos[i][j] = opc.charAt(0);
+                    if(respAlunos[i][j] == gabarito[j]){
+                        pontos++;
+                    }
+                }
+            }
+            resultado[i] = pontos;
+        }
+        for (int i = 0; i < respAlunos.length; i++){
+            System.out.println("Aluno "+(i+1)+" Matricula: "+matricula[i]+" Respostas:");
+            for (int j = 0; j < respAlunos[i].length; j++){
+                System.out.println("Questão "+(j+1)+"; resposta: "+respAlunos[i][j]+"; Gabarito:"+gabarito[j]);
+            }
+            System.out.print("Nota final: "+resultado[i]);
+            if(resultado[i] >= 7){
+                System.out.println(", Aprovado");
+            }else {
+                System.out.println(", Reprovado");
+            }
+            System.out.println("");
+        }
+    }
+
+    public static void exercicio17(){
+        Scanner scan = new Scanner(System.in);
+        int[][] respAlunos = new int[3][3];
+        int[] nota = new int[3];
+
+        for (int i = 0; i < respAlunos.length; i++){
+            System.out.println((i+1)+" Aluno:");
+
+            for (int j = 0; j<respAlunos[i].length; j++){
+                System.out.println("Informe a "+(1+j)+" nota:");
+                respAlunos[i][j] = scan.nextInt();
+                if ( j > 0){
+                    if (respAlunos[i][j] < respAlunos[i][j-1]){
+                        nota[i] = respAlunos[i][j];
+                    }else {
+                        nota[i] = respAlunos[i][j-1];
+                    }
+                }
+            }
+        }
+
+        for (int i = 0, cont =0; i < respAlunos.length; i++){
+            for (int j = 0; j < respAlunos[i].length; j++){
+                cont = contador(respAlunos[i], nota[i]);
+            }
+            System.out.println("Quantidade de alunos que tiraram pior nota na "+(i+1)+" prova: "+cont);
+            cont=0;
+        }
+
+    }
+
+    public static int contador (int[] vetor, int nota){
+        int cont=0;
+        for (int i = 0; i < vetor.length; i++){
+            if(nota ==  vetor[i]){
+                cont++;
+            }
+        }
+        return cont;
+    }
+
+
+    public static void exercicio18() {
+        Scanner scan = new Scanner(System.in);
+        int[][] matriz = new int[3][3];
+        int[] vetor = {0,0,0};
+
+        for (int i=0; i<matriz.length; i++){
+            for (int j = 0; j<matriz[i].length; j++){
+                System.out.println("Informe valor da matriz["+i+"]["+j+"]:");
+                matriz[i][j] = scan.nextInt();
+                vetor[j]+=matriz[i][j];
+            }
+        }
+
+        for (int i=0; i<matriz.length; i++){
+            for (int j = 0; j<matriz[i].length; j++){
+                if(matriz[i][j] < 10){
+                    System.out.print(" | 0"+matriz[i][j]);
+                }else {
+                    System.out.print(" | "+matriz[i][j]);
+                }
+
+            }
+            System.out.println("");
+        }
+        System.out.println("-----------------");
+        for (int mostra: vetor){
+            if(mostra < 10){
+                System.out.print(" | 0"+mostra);
+            }else {
+                System.out.print(" | "+mostra);
+            }
+        }
+
+    }
+
+
+    public static void exercicio19() {
+        Scanner scan = new Scanner(System.in);
+        int[][] AlunoInf = new int[2][4];
+        double media =0;
+        int index = 0;
+
+        for (int i=0; i<AlunoInf.length; i++){
+            System.out.println((i+1)+"º Aluno:");
+            for (int j = 0; j<AlunoInf[i].length; j++){
+                if (j==0){
+                    System.out.println("Matricula:");
+                    AlunoInf[i][j]= scan.nextInt();
+                }else if(j == 1){
+                        System.out.println("Media provas:");
+                        AlunoInf[i][j]= scan.nextInt();
+                        AlunoInf[i][(AlunoInf[i].length)-1] = AlunoInf[i][j];
+                }else if(j == 2){
+                    System.out.println("Media trabalhos:");
+                    AlunoInf[i][j]= scan.nextInt();
+                    AlunoInf[i][(AlunoInf[i].length)-1]+= AlunoInf[i][j];
+                }else {
+                    AlunoInf[i][j] = AlunoInf[i][j] / 2;
+                    media += AlunoInf[i][j];
                 }
 
             }
         }
+
+        for (int i = 0; i < AlunoInf.length; i++){
+            if (i > 0){
+                if( AlunoInf[i][(AlunoInf[i].length)-1] >  AlunoInf[i-1][(AlunoInf[i].length)-1]){
+                    index = i;
+                }
+            }
+        }
+        System.out.println("Aluno com a maior nota tem matrícula de numero: "+AlunoInf[index][0]+" Nota:"+AlunoInf[index][(AlunoInf[index].length)-1]);
+        media /= 2;
+        System.out.println("A média das notas finais são: "+media);
+
     }
+
+
 
 }
