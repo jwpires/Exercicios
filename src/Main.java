@@ -2,13 +2,12 @@ import java.util.Scanner;
 
 public class Main {
 
-    class Publica{
-        public  static void main(String arg[]){
+        public static void main(String arg[]){
             Scanner scanner = new Scanner(System.in);
             /*● Após criar classe, criar uma classe Main realizando os seguintes passos:*/
             /* Criar um funcionário recebendo pelo terminal as informações de
             cada atributo*/
-            Funcionario fun1;
+            Funcionario fun1 = new Funcionario();
             fun1.valorPorHora = 12.50;
             fun1.horasTrabalhadas = 180.5;
             fun1.nome = "Maria";
@@ -24,7 +23,7 @@ public class Main {
         */
             System.out.println("Informe qual opção deseja realizar:");
             System.out.println("1 - Incrementar quantidade de horas trabalhadas");
-            System.out.println("2 - Substituir o valor por hora do funcionário")
+            System.out.println("2 - Substituir o valor por hora do funcionário");
             System.out.println("3 - Calcular o salário do funcionário no final do mês");
             int opc = scanner.nextInt();
 
@@ -32,9 +31,22 @@ public class Main {
                 case 1:
                     System.out.println("Informe o valor a ser incrementado");
                     double valor = scanner.nextDouble();
-                    fun1.incrementarHorasTrabalhadas();
-                }
+                    fun1.incrementarHorasTrabalhadas(valor);
+                    break;
+
+                case 2:
+                    System.out.println("Informe o novo valor por hora do funcionário");
+                    double valor1 = scanner.nextDouble();
+                    fun1.alterarValorPorHora(valor1);
+                    break;
+
+                case 3:
+                    fun1.salario();
+                    break;
             }
+
         }
-    }
 }
+
+
+

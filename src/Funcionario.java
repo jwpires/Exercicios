@@ -28,7 +28,7 @@
 */
 public class Funcionario {
 
-    String nome, sobrenome, cidade ,estado
+    String nome, sobrenome, cidade ,estado;
     double horasTrabalhadas = 0;
     double valorPorHora =  0;
 
@@ -53,6 +53,7 @@ public class Funcionario {
     //Incrementar quantidade de horas no valor atual de horas trabalhadas
     void incrementarHorasTrabalhadas(double horasTrabalhadas){
         this.horasTrabalhadas+= horasTrabalhadas;
+        System.out.println("Valor incrementado: "+this.horasTrabalhadas);
     }
 
     /*Receber novo valor por hora trabalhada por parâmetro e alterar o valor por
@@ -65,8 +66,8 @@ public class Funcionario {
 
     /*Método para calcular o salário que o funcionário receberá no final do mês,
     e em seguida imprimir o valor.*/
-    void salario(double valorPorHora, double horasTrabalhadas){
-        System.out.println("Salario a ser recebido: "+(valorPorHora*horasTrabalhadas));
+    void salario(){
+        System.out.println("Salario a ser recebido: "+(this.valorPorHora*this.horasTrabalhadas));
     }
 
 }
