@@ -7,11 +7,9 @@ public class Main {
             /*● Após criar classe, criar uma classe Main realizando os seguintes passos:*/
             /* Criar um funcionário recebendo pelo terminal as informações de
             cada atributo*/
-            Funcionario fun1 = new Funcionario();
+            Funcionario fun1 = new Funcionario( "Maria", "Regina");
             fun1.valorPorHora = 12.50;
             fun1.horasTrabalhadas = 180.5;
-            fun1.nome = "Maria";
-            fun1.sobrenome = "Silva";
             fun1.cidade = "São Paulo";
             fun1.estado = "São Paulo";
 
