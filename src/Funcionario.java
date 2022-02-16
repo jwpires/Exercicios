@@ -7,25 +7,7 @@
         ● Estado
         ● Horas Trabalhadas
         ● Valor Por Hora
-        Este funcionário deverá ter os seguintes métodos:
-        ● Exibir na tela o nome e sobrenome
-        ● Adicionar um construtor default e um construtor com os valores para
-        inicializar o objeto
-        ● Incrementar quantidade de horas no valor atual de horas trabalhadas
-        ● Receber novo valor por hora trabalhada por parâmetro e alterar o valor por
-        hora do funcionário e logo em seguida exibir o novo valor na tela
-        ● Método para calcular o salário que o funcionário receberá no final do mês,
-        e em seguida imprimir o valor.
-        ○ A regra para este cálculo é horas trabalhadas * o valor por hora
-        ● Após criar classe, criar uma classe Main realizando os seguintes passos:
-        ○ Criar um funcionário recebendo pelo terminal as informações de
-        cada atributo
-        ○ Após criar o funcionário com as informações passadas, exibir um
-        MENU com as opções:
-        ■ Incrementar quantidade de horas trabalhadas
-        ■ Substituir o valor por hora do funcionário
-        ■ Calcular o salário do funcionário no final do mês
-*/
+       */
 public class Funcionario {
 
     String nome, sobrenome, cidade ,estado;
