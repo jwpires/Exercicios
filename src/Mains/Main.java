@@ -1,4 +1,8 @@
+package Mains;
+
 import java.util.Scanner;
+
+import classe.Funcionario;
 
 public class Main {
 
@@ -8,10 +12,10 @@ public class Main {
             /* Criar um funcionário recebendo pelo terminal as informações de
             cada atributo*/
             Funcionario fun1 = new Funcionario( "Maria", "Regina");
-            fun1.valorPorHora = 12.50;
-            fun1.horasTrabalhadas = 180.5;
-            fun1.cidade = "São Paulo";
-            fun1.estado = "São Paulo";
+            fun1.setValorPorHora(12.50);
+            fun1.setHorasTrabalhadas(180.5);
+            fun1.setCidade("São Paulo");
+            fun1.setEstado("São Paulo");
 
         /*Após criar o funcionário com as informações passadas, exibir um
             MENU com as opções:

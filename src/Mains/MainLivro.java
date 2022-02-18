@@ -1,7 +1,10 @@
-/*
-        ● Após criar a classe Livro, vocês devem criar uma classe Main com os
+package Mains;/*
+        ● Após criar a classe classe.Livro, vocês devem criar uma classe Main com os
         seguintes passos:
 */
+
+
+import classe.Livro;
 
 import java.util.Scanner;
 
@@ -18,8 +21,8 @@ public class MainLivro {
 
         //Logo em seguida chamar o método para verificar o progresso da leitura do livro
         Livro livro1 = new Livro(totalPaginas, totalPaginasLidas);
-        livro1.titulo = "História dos Hebreus";
-        livro1.nomeDoLeitor = "José Pires";
+        livro1.setTitulo("História dos Hebreus");
+        livro1.setNomeDoLeitor("José Pires");
 
         //○ Logo em seguida chamar o método para verificar o progresso da leitura do livro
         livro1.progressoLeitura();
