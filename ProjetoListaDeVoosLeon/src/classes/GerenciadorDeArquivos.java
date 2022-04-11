@@ -51,13 +51,14 @@ public class GerenciadorDeArquivos{
     }
 
 
-    public static void escreveLinhas(String caminhoArquivo, String[] conteudoArquivo, String converter) {
+    public static void escreveLinhas(String caminhoArquivo, String[] conteudoArquivo, String cabecalho) {
         Path caminho = Paths.get(caminhoArquivo);
 
-        byte[] cabecalho = converter.getBytes();
+        //byte[] cabecalho = converter.getBytes();
         List<String> lisConteudoArquivo = Arrays.stream(conteudoArquivo).collect(Collectors.toList());
+        lisConteudoArquivo.add(0, cabecalho);
         try {
-            Files.write(caminho, cabecalho);
+            //Files.write(caminho, cabecalho);
             Files.write(caminho, lisConteudoArquivo);
         } catch (IOException excecao) { }
     }
